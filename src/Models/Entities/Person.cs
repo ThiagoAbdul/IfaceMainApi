@@ -8,11 +8,7 @@ public class Person : EntityBase
     public string LastName { get; set; } = string.Empty;
     public Gender Gender { get; set; }
     public Guid? MainPhoneId { get; set; }
-    public Phone? MainPhone { get; set; }
-    public Guid? SecondaryPhoneId { get; set; }
-    public Phone? SecondaryPhone { get; set; }
-    public Guid? MainAddressId { get; set; }
-    public Address? MainAddress { get; set; }
-    public Guid? SecondaryAddressId { get; set; }
-    public Address? SecondaryAddress { get; set; }
+    public string? MainPhoneNumber { get; set; }
+    public string? SecondaryPhoneNumber { get; set; }
+
 }

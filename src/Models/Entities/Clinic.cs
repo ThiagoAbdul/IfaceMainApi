@@ -8,11 +8,8 @@ public class Clinic : EntityBase
     public Guid CredentialsId { get; set; }
     public Credentials? Credentials { get; set; }
     public Guid? MainPhoneNumberId { get; set; }
-    public Phone? MainPhoneNumber { get; set; }
-    public Guid? SecondaryPhoneNumberId { get; set; }
-    public Phone? SecondaryPhoneNumber { get; set; }
-    public Guid AddressId { get; set; }
-    public Address? Address { get; set; }
+    public string? MainPhoneNumber { get; set; }
+    public string? SecondaryPhoneNumber { get; set; }
     public IEnumerable<ClinicCaregiver> ClinicCaregivers { get; set; } = [];
     public IEnumerable<PersonWithAlzheimersDisease> Patients { get; set; } = [];
 }

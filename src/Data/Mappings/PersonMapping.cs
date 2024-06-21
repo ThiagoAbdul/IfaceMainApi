@@ -9,10 +9,7 @@ public class PersonMapping : IEntityTypeConfiguration<Person>
     {
         builder.ToTable("persons");
         builder.HasKey(x => x.Id);
-        builder.HasOne(x => x.MainPhone).WithOne().HasForeignKey<Person>(x => x.MainPhoneId);
-        builder.HasOne(x => x.SecondaryPhone).WithOne().HasForeignKey<Person>(x => x.SecondaryPhoneId);
-        builder.HasOne(x => x.MainAddress).WithOne().HasForeignKey<Person>(x => x.MainAddressId);
-        builder.HasOne(x => x.SecondaryAddress).WithOne().HasForeignKey<Person>(x => x.SecondaryAddressId);
+        builder.HasOne(x => x.MainPhoneNumber).WithOne().HasForeignKey<Person>(x => x.MainPhoneId);
         
     }
 }
