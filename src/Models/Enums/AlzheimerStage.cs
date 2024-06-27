@@ -1,6 +1,6 @@
 namespace IfaceMainApi.Models.Enums;
 
-public enum AlzheimerState
+public enum AlzheimerStage
 {
     FIRST,
     SECOND,

@@ -8,7 +8,7 @@ public class PersonWithAlzheimersDisease : EntityBase
     public string DeviceToken { get; set; } = string.Empty;
     public string? Email { get; set; }
     public string? Description { get; set;}
-    public AlzheimerState AlzheimerState { get; set; }
+    public AlzheimerStage AlzheimerStage { get; set; }
     public Guid? ClinicId { get; set; }
     public Clinic? Clinic { get; set; }
     public Guid? ResponsibleId { get; set; }
