@@ -3,14 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IfaceMainApi.Data.Mappings;
-public class CaregiverMapping : IEntityTypeConfiguration<Caregiver>
+public class CaregiverMapping : MappingBase<Caregiver>
 {
-    public void Configure(EntityTypeBuilder<Caregiver> builder)
+    public override void Configure(EntityTypeBuilder<Caregiver> builder)
     {
+        base.Configure(builder);
         builder.ToTable("caregivers");
-        builder.HasKey(x => x.Id);
+        builder.HasIndex(x => x.AuthId);
         builder.HasOne(x => x.Person).WithOne().HasForeignKey<Caregiver>(x => x.PersonId);
-        builder.HasOne(x => x.Credentials).WithOne().HasForeignKey<Caregiver>(x => x.CredentialsId);
-        builder.HasMany(x => x.ClinicCaregivers).WithOne(x => x.Caregiver);
+        builder.HasMany(x => x.Carefuls).WithOne(x => x.Caregiver);
     }
 }

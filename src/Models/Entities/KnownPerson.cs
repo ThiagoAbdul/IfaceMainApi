@@ -1,15 +1,12 @@
 namespace IfaceMainApi.Models.Entities;
-
-public class Scheduling : EntityBase
+public class KnownPerson : EntityBase
 {
+    public Guid PersonId { get; set; }
+    public Person? Person { get; set; }
     public Guid PersonWithAlzheimersDiseaseId { get; set; }
     public PersonWithAlzheimerDisease? PersonWithAlzheimersDisease { get; set; }
-    public Guid PrescriptionId { get; set; }
-    public string Description { get; set; } = string.Empty;
-    public DateTime When { get; set; }
+    public virtual List<Photo> Photos { get; set; } = [];
 
-    public Scheduling()
-    {
-        
-    }
+    public string Description { get; set; } = string.Empty;
+
 }

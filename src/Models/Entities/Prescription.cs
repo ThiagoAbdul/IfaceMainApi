@@ -2,9 +2,14 @@ namespace IfaceMainApi.Models.Entities;
 public class Prescription : EntityBase
 {
     public Guid PatientId { get; set; }
-    public virtual PersonWithAlzheimersDisease? Patient { get; set; }
-    public Guid MedicineId { get; set; }
-    public Medicine? Medicine { get; set; }
-    public string Comments { get; set; } = string.Empty;
+    public virtual PersonWithAlzheimerDisease? Patient { get; set; }
+    public string MedicineName { get; set; } = string.Empty;
+    public string Description { get; set; } = string.Empty;
+    public bool Active { get; set; }
+
+    public Prescription()
+    {
+        
+    }
 
 }
