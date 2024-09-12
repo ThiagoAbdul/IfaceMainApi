@@ -1,0 +1,65 @@
+﻿using IfaceMainApi.Models.DTOs;
+using IfaceMainApi.Models.Templates;
+using IfaceMainApi.src.Models.DTOs;
+using IfaceMainApi.src.Services;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace IfaceMainApi.src.Controllers;
+
+[Route("api/[controller]")]
+[ApiController]
+public class PwadController(PwadService pwadService) : ControllerBase
+{
+    private readonly PwadService _pwadService = pwadService;
+    [HttpPost]
+    public async Task<IActionResult> RegisterPwad([FromBody] CreatePwadRequest request)
+    {
+        Guid caregiverId = Guid.Parse("3fa85f64-5717-4562-b3fc-2c963f66afa6");
+        Result<PwadResponse> result = await _pwadService.Create(request, caregiverId);
+
+        if (result.HasError())
+            return BadRequest(result.ErrorMessage);
+
+        return Created($"{result.Value.Id}", result.Value);
+
+    }
+
+    [HttpPost("RegisterDevice")]
+    public async Task<IActionResult> GetPwad([FromBody] RegisterPwadDeviceRequest request)
+    {
+        Result<PwadResponse> result = await _pwadService.RegisterDevice(request);
+
+        if (result.HasError()) 
+            return BadRequest(result.ErrorMessage);
+
+        return Ok(result.Value);
+    }
+
+    [HttpPost("{pwadId}/AddKnowPerson")]
+    public async Task<IActionResult> AddKnowPerson(
+        [FromRoute] Guid pwadId, [FromBody] CreateKnowPersonRequest request)
+    {
+        var response = await _pwadService.AddKownPerson(pwadId, request); 
+
+        if(response.HasError())
+            return BadRequest(response.ErrorMessage);
+
+        return Created($"/api/KnownPerson/{response.Value.Id}", response.Value);
+    }
+
+    [HttpGet("{pwadId}/KnownPersons")]
+    public async Task<IActionResult> GetAllKnownPersonsByPwadId([FromRoute] Guid pwadId)
+    {
+        var response = await _pwadService.GetAllKnownPersonsByPwadId(pwadId);
+
+        if(response.HasError())
+            return BadRequest(response.ErrorMessage);
+
+
+        return Ok(response.Value);
+
+    }
+
+}
+

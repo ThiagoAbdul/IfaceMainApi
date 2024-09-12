@@ -3,15 +3,22 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IfaceMainApi.Data.Mappings;
-public class PersonWithAlzheimersDiseaseMapping : IEntityTypeConfiguration<PersonWithAlzheimersDisease>
+public class PersonWithAlzheimersDiseaseMapping : MappingBase<PersonWithAlzheimerDisease>
 {
-    public void Configure(EntityTypeBuilder<PersonWithAlzheimersDisease> builder)
+    public override void Configure(EntityTypeBuilder<PersonWithAlzheimerDisease> builder)
     {
+        base.Configure(builder);
+
         builder.ToTable("persons_with_alzheimer_disease");
-        builder.HasKey(x => x.Id);
-        builder.HasOne(x => x.Person).WithOne().HasForeignKey<PersonWithAlzheimersDisease>(x => x.PersonId);
-        builder.HasOne(x => x.Clinic).WithMany(x => x.Patients).HasForeignKey(x => x.ClinicId);
-        builder.HasOne(x => x.Responsible).WithMany(x => x.PersonsWithAlzheimerDisease)
-            .HasForeignKey(x => x.ResponsibleId);
+
+        builder.HasOne(x => x.Person)
+                .WithOne().HasForeignKey<PersonWithAlzheimerDisease>(x => x.PersonId);
+
+        builder.HasOne(x => x.MainCaregiver)
+            .WithMany()
+            .HasForeignKey(x => x.MainCaregiverId);
+
+        builder.HasMany(x => x.Carefuls).WithOne(x => x.Pwad);
+
     }
 }

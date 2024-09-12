@@ -8,4 +8,9 @@ public class EntityBase
     public Guid UpdatedById { get; set; }
     public DateTime LastUpdatedAt { get; set; }
 
+    public EntityBase()
+    {
+        
+    }
+
 }
