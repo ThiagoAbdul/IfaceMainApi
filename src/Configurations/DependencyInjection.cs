@@ -12,6 +12,7 @@ public static class DependencyInjection
         services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
         services.AddScoped<CaregiverService>();
         services.AddScoped<PwadService>();
+        services.AddScoped<KnownPersonService>();
 
     }
 }

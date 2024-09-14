@@ -1,7 +1,6 @@
-﻿using IfaceMainApi.Models.DTOs;
-using IfaceMainApi.Models.Entities;
+﻿using IfaceMainApi.Models.Entities;
 
-namespace IfaceMainApi.src.Models.DTOs
+namespace IfaceMainApi.src.Models.DTOs.Out
 {
     public class CaregiverResponse
     {

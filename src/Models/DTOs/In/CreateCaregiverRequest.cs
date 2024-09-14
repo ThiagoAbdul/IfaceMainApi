@@ -1,4 +1,4 @@
-﻿namespace IfaceMainApi.Models.DTOs
+﻿namespace IfaceMainApi.src.Models.DTOs.In
 {
     public class CreateCaregiverRequest
     {
@@ -6,6 +6,6 @@
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
-        
+
     }
 }

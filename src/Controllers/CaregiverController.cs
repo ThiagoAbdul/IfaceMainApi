@@ -1,10 +1,10 @@
-﻿using IfaceMainApi.Models.DTOs;
-using IfaceMainApi.Services;
+﻿using IfaceMainApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using IfaceMainApi.Models.Entities;
 using IfaceMainApi.Models.Templates;
-using IfaceMainApi.src.Models.DTOs;
+using IfaceMainApi.src.Models.DTOs.In;
+using IfaceMainApi.src.Models.DTOs.Out;
 
 
 namespace IfaceMainApi.src.Controllers

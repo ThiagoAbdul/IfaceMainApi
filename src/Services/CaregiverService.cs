@@ -1,8 +1,8 @@
 ﻿using IfaceMainApi.Data;
-using IfaceMainApi.Models.DTOs;
 using IfaceMainApi.Models.Entities;
 using IfaceMainApi.Models.Templates;
-using IfaceMainApi.src.Models.DTOs;
+using IfaceMainApi.src.Models.DTOs.In;
+using IfaceMainApi.src.Models.DTOs.Out;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 

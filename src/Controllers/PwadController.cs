@@ -1,6 +1,6 @@
-﻿using IfaceMainApi.Models.DTOs;
-using IfaceMainApi.Models.Templates;
-using IfaceMainApi.src.Models.DTOs;
+﻿using IfaceMainApi.Models.Templates;
+using IfaceMainApi.src.Models.DTOs.In;
+using IfaceMainApi.src.Models.DTOs.Out;
 using IfaceMainApi.src.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -59,6 +59,17 @@ public class PwadController(PwadService pwadService) : ControllerBase
 
         return Ok(response.Value);
 
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById([FromRoute] Guid id)
+    {
+        var response = await _pwadService.GetPwadById(id);
+
+        if(response.HasError())
+            return BadRequest(response.ErrorMessage);
+
+        return Ok(response.Value);
     }
 
 }
