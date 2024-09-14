@@ -1,13 +1,12 @@
-﻿using IfaceMainApi.Models.DTOs;
-using IfaceMainApi.Models.Entities;
+﻿using IfaceMainApi.Models.Entities;
 
-namespace IfaceMainApi.src.Models.DTOs;
+namespace IfaceMainApi.src.Models.DTOs.Out;
 
 public class KnownPersonResponse
 {
     public Guid Id { get; set; }
     public PersonResponse Person { get; set; }
-    public Guid PwadId {  get; set; }
+    public Guid PwadId { get; set; }
     public string Description { get; set; } = string.Empty;
 
     public KnownPersonResponse() { }
@@ -17,11 +16,9 @@ public class KnownPersonResponse
         Id = knownPerson.Id;
         Description = knownPerson.Description;
 
-
-
         Person = new PersonResponse(knownPerson.Person);
 
-        PwadId = knownPerson.PersonWithAlzheimersDiseaseId;    
+        PwadId = knownPerson.PersonWithAlzheimersDiseaseId;
     }
 
 }

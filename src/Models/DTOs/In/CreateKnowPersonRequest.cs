@@ -1,4 +1,4 @@
-﻿namespace IfaceMainApi.src.Models.DTOs;
+﻿namespace IfaceMainApi.src.Models.DTOs.In;
 
 public class CreateKnowPersonRequest
 {
@@ -9,6 +9,6 @@ public class CreateKnowPersonRequest
 
     public CreateKnowPersonRequest()
     {
-        
+
     }
 }

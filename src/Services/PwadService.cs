@@ -1,8 +1,8 @@
 ﻿using IfaceMainApi.Data;
-using IfaceMainApi.Models.DTOs;
 using IfaceMainApi.Models.Entities;
 using IfaceMainApi.Models.Templates;
-using IfaceMainApi.src.Models.DTOs;
+using IfaceMainApi.src.Models.DTOs.In;
+using IfaceMainApi.src.Models.DTOs.Out;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
@@ -145,6 +145,27 @@ public class PwadService(AppDbContext appDbContext, ILogger<PwadService> logger)
 
         return Result<IEnumerable<KnownPersonResponse>>
             .Success(knownPeople.Select(k => new KnownPersonResponse(k)));
+    }
+
+    public async Task<Result<PwadResponse>> GetPwadById(Guid pwadId)
+    {
+        PersonWithAlzheimerDisease? pwad = await _dbContext.PersonWithAlzheimerDisease
+            .Include(x => x.Person)
+            .FirstOrDefaultAsync(x => x.Id == pwadId);
+
+        if (pwad == null)
+            return Result<PwadResponse>.Error("Portafor de Alzheimer não encontrado");
+
+        PwadResponse response = new()
+        {
+            Id = pwad.Id,
+            Person = new PersonResponse(pwad.Person), // TODO
+            CarefulToken = ""
+            
+            
+        };
+
+        return Result<PwadResponse>.Success(response);
     }
 
 }

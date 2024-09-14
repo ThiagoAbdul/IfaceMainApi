@@ -1,6 +1,6 @@
 ﻿using IfaceMainApi.Models.Entities;
 
-namespace IfaceMainApi.Models.DTOs
+namespace IfaceMainApi.src.Models.DTOs.Out
 {
     public class PwadResponse
     {

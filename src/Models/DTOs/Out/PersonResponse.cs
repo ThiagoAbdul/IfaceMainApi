@@ -1,6 +1,6 @@
 ﻿using IfaceMainApi.Models.Entities;
 
-namespace IfaceMainApi.Models.DTOs
+namespace IfaceMainApi.src.Models.DTOs.Out
 {
     public class PersonResponse
     {
@@ -9,7 +9,7 @@ namespace IfaceMainApi.Models.DTOs
 
         public PersonResponse()
         {
-            
+
         }
         public PersonResponse(Person person)
         {
