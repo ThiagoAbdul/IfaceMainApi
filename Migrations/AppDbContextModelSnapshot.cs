@@ -38,7 +38,7 @@ namespace IfaceMainApi.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 9, 11, 3, 22, 44, 334, DateTimeKind.Utc).AddTicks(6749));
+                        .HasDefaultValue(new DateTime(2024, 9, 15, 18, 17, 55, 229, DateTimeKind.Utc).AddTicks(6272));
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -77,7 +77,7 @@ namespace IfaceMainApi.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 9, 11, 3, 22, 44, 332, DateTimeKind.Utc).AddTicks(9350));
+                        .HasDefaultValue(new DateTime(2024, 9, 15, 18, 17, 55, 227, DateTimeKind.Utc).AddTicks(9607));
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -113,7 +113,7 @@ namespace IfaceMainApi.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 9, 11, 3, 22, 44, 333, DateTimeKind.Utc).AddTicks(2001));
+                        .HasDefaultValue(new DateTime(2024, 9, 15, 18, 17, 55, 228, DateTimeKind.Utc).AddTicks(2100));
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -154,7 +154,7 @@ namespace IfaceMainApi.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 9, 11, 3, 22, 44, 333, DateTimeKind.Utc).AddTicks(2500));
+                        .HasDefaultValue(new DateTime(2024, 9, 15, 18, 17, 55, 228, DateTimeKind.Utc).AddTicks(2629));
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -197,7 +197,7 @@ namespace IfaceMainApi.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 9, 11, 3, 22, 44, 333, DateTimeKind.Utc).AddTicks(4670));
+                        .HasDefaultValue(new DateTime(2024, 9, 15, 18, 17, 55, 228, DateTimeKind.Utc).AddTicks(4955));
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -251,7 +251,7 @@ namespace IfaceMainApi.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 9, 11, 3, 22, 44, 333, DateTimeKind.Utc).AddTicks(5091));
+                        .HasDefaultValue(new DateTime(2024, 9, 15, 18, 17, 55, 228, DateTimeKind.Utc).AddTicks(5452));
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -298,7 +298,7 @@ namespace IfaceMainApi.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 9, 11, 3, 22, 44, 334, DateTimeKind.Utc).AddTicks(2513));
+                        .HasDefaultValue(new DateTime(2024, 9, 15, 18, 17, 55, 229, DateTimeKind.Utc).AddTicks(2339));
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -341,7 +341,7 @@ namespace IfaceMainApi.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 9, 11, 3, 22, 44, 334, DateTimeKind.Utc).AddTicks(3522));
+                        .HasDefaultValue(new DateTime(2024, 9, 15, 18, 17, 55, 229, DateTimeKind.Utc).AddTicks(3188));
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -382,7 +382,7 @@ namespace IfaceMainApi.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 9, 11, 3, 22, 44, 334, DateTimeKind.Utc).AddTicks(4776));
+                        .HasDefaultValue(new DateTime(2024, 9, 15, 18, 17, 55, 229, DateTimeKind.Utc).AddTicks(4332));
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -423,7 +423,7 @@ namespace IfaceMainApi.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 9, 11, 3, 22, 44, 334, DateTimeKind.Utc).AddTicks(5663));
+                        .HasDefaultValue(new DateTime(2024, 9, 15, 18, 17, 55, 229, DateTimeKind.Utc).AddTicks(5220));
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");

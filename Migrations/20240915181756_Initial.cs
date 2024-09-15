@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace IfaceMainApi.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -22,7 +22,7 @@ namespace IfaceMainApi.Migrations
                     Sync = table.Column<bool>(type: "boolean", nullable: false),
                     Deleted = table.Column<bool>(type: "boolean", nullable: false),
                     CreatedById = table.Column<Guid>(type: "uuid", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 9, 11, 3, 22, 44, 333, DateTimeKind.Utc).AddTicks(2001)),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 9, 15, 18, 17, 55, 228, DateTimeKind.Utc).AddTicks(2100)),
                     UpdatedById = table.Column<Guid>(type: "uuid", nullable: false),
                     LastUpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
@@ -44,7 +44,7 @@ namespace IfaceMainApi.Migrations
                     SecondaryPhoneNumber = table.Column<string>(type: "text", nullable: true),
                     Deleted = table.Column<bool>(type: "boolean", nullable: false),
                     CreatedById = table.Column<Guid>(type: "uuid", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 9, 11, 3, 22, 44, 333, DateTimeKind.Utc).AddTicks(4670)),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 9, 15, 18, 17, 55, 228, DateTimeKind.Utc).AddTicks(4955)),
                     UpdatedById = table.Column<Guid>(type: "uuid", nullable: false),
                     LastUpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
@@ -62,7 +62,7 @@ namespace IfaceMainApi.Migrations
                     AuthId = table.Column<Guid>(type: "uuid", nullable: false),
                     Deleted = table.Column<bool>(type: "boolean", nullable: false),
                     CreatedById = table.Column<Guid>(type: "uuid", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 9, 11, 3, 22, 44, 332, DateTimeKind.Utc).AddTicks(9350)),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 9, 15, 18, 17, 55, 227, DateTimeKind.Utc).AddTicks(9607)),
                     UpdatedById = table.Column<Guid>(type: "uuid", nullable: false),
                     LastUpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
@@ -90,7 +90,7 @@ namespace IfaceMainApi.Migrations
                     CaregiverId = table.Column<Guid>(type: "uuid", nullable: true),
                     Deleted = table.Column<bool>(type: "boolean", nullable: false),
                     CreatedById = table.Column<Guid>(type: "uuid", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 9, 11, 3, 22, 44, 333, DateTimeKind.Utc).AddTicks(5091)),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 9, 15, 18, 17, 55, 228, DateTimeKind.Utc).AddTicks(5452)),
                     UpdatedById = table.Column<Guid>(type: "uuid", nullable: false),
                     LastUpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
@@ -126,7 +126,7 @@ namespace IfaceMainApi.Migrations
                     CarefulToken = table.Column<string>(type: "text", nullable: false),
                     Deleted = table.Column<bool>(type: "boolean", nullable: false),
                     CreatedById = table.Column<Guid>(type: "uuid", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 9, 11, 3, 22, 44, 334, DateTimeKind.Utc).AddTicks(6749)),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 9, 15, 18, 17, 55, 229, DateTimeKind.Utc).AddTicks(6272)),
                     UpdatedById = table.Column<Guid>(type: "uuid", nullable: false),
                     LastUpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
@@ -157,7 +157,7 @@ namespace IfaceMainApi.Migrations
                     Description = table.Column<string>(type: "text", nullable: false),
                     Deleted = table.Column<bool>(type: "boolean", nullable: false),
                     CreatedById = table.Column<Guid>(type: "uuid", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 9, 11, 3, 22, 44, 334, DateTimeKind.Utc).AddTicks(4776)),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 9, 15, 18, 17, 55, 229, DateTimeKind.Utc).AddTicks(4332)),
                     UpdatedById = table.Column<Guid>(type: "uuid", nullable: false),
                     LastUpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
@@ -182,7 +182,7 @@ namespace IfaceMainApi.Migrations
                     Description = table.Column<string>(type: "text", nullable: false),
                     Deleted = table.Column<bool>(type: "boolean", nullable: false),
                     CreatedById = table.Column<Guid>(type: "uuid", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 9, 11, 3, 22, 44, 333, DateTimeKind.Utc).AddTicks(2500)),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 9, 15, 18, 17, 55, 228, DateTimeKind.Utc).AddTicks(2629)),
                     UpdatedById = table.Column<Guid>(type: "uuid", nullable: false),
                     LastUpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
@@ -214,7 +214,7 @@ namespace IfaceMainApi.Migrations
                     Active = table.Column<bool>(type: "boolean", nullable: false),
                     Deleted = table.Column<bool>(type: "boolean", nullable: false),
                     CreatedById = table.Column<Guid>(type: "uuid", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 9, 11, 3, 22, 44, 334, DateTimeKind.Utc).AddTicks(3522)),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 9, 15, 18, 17, 55, 229, DateTimeKind.Utc).AddTicks(3188)),
                     UpdatedById = table.Column<Guid>(type: "uuid", nullable: false),
                     LastUpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
@@ -240,7 +240,7 @@ namespace IfaceMainApi.Migrations
                     When = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Deleted = table.Column<bool>(type: "boolean", nullable: false),
                     CreatedById = table.Column<Guid>(type: "uuid", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 9, 11, 3, 22, 44, 334, DateTimeKind.Utc).AddTicks(5663)),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 9, 15, 18, 17, 55, 229, DateTimeKind.Utc).AddTicks(5220)),
                     UpdatedById = table.Column<Guid>(type: "uuid", nullable: false),
                     LastUpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
@@ -265,7 +265,7 @@ namespace IfaceMainApi.Migrations
                     Embedding = table.Column<string>(type: "text", nullable: true),
                     Deleted = table.Column<bool>(type: "boolean", nullable: false),
                     CreatedById = table.Column<Guid>(type: "uuid", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 9, 11, 3, 22, 44, 334, DateTimeKind.Utc).AddTicks(2513)),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 9, 15, 18, 17, 55, 229, DateTimeKind.Utc).AddTicks(2339)),
                     UpdatedById = table.Column<Guid>(type: "uuid", nullable: false),
                     LastUpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },

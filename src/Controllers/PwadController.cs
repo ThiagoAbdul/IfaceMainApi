@@ -16,7 +16,7 @@ public class PwadController(PwadService pwadService) : ControllerBase
     public async Task<IActionResult> RegisterPwad([FromBody] CreatePwadRequest request)
     {
         Guid caregiverId = Guid.Parse("3fa85f64-5717-4562-b3fc-2c963f66afa6");
-        Result<PwadResponse> result = await _pwadService.Create(request, caregiverId);
+        Result<PwadMinResponse> result = await _pwadService.Create(request, caregiverId);
 
         if (result.HasError())
             return BadRequest(result.ErrorMessage);
@@ -28,7 +28,7 @@ public class PwadController(PwadService pwadService) : ControllerBase
     [HttpPost("RegisterDevice")]
     public async Task<IActionResult> GetPwad([FromBody] RegisterPwadDeviceRequest request)
     {
-        Result<PwadResponse> result = await _pwadService.RegisterDevice(request);
+        Result<PwadMinResponse> result = await _pwadService.RegisterDevice(request);
 
         if (result.HasError()) 
             return BadRequest(result.ErrorMessage);

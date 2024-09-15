@@ -69,7 +69,7 @@ namespace IfaceMainApi.Services
         
         }
 
-        public async Task<Result<IEnumerable<PwadResponse>>> GetAllPwadsByCaregiver(Guid authId)
+        public async Task<Result<IEnumerable<PwadMinResponse>>> GetAllPwadsByCaregiver(Guid authId)
         {
             Caregiver? caregiver = await _dbContext.Caregivers
                 .Include(c => c.Carefuls)
@@ -79,16 +79,16 @@ namespace IfaceMainApi.Services
                 .FirstOrDefaultAsync(c => c.AuthId == authId);
 
             if (caregiver == null)
-                return Result<IEnumerable<PwadResponse>>.Error("Cuidador não encontrado");
+                return Result<IEnumerable<PwadMinResponse>>.Error("Cuidador não encontrado");
 
-            IEnumerable<PwadResponse> response = caregiver.Carefuls.Select(c => new PwadResponse
+            IEnumerable<PwadMinResponse> response = caregiver.Carefuls.Select(c => new PwadMinResponse
             {
                 Id = c.PwadId,
                 CarefulToken = c.CarefulToken,
                 Person = new PersonResponse(c.Pwad.Person)
             });
 
-            return Result<IEnumerable<PwadResponse>>.Success(response);
+            return Result<IEnumerable<PwadMinResponse>>.Success(response);
         }
     }
 }

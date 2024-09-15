@@ -1,4 +1,5 @@
 ﻿using IfaceMainApi.Data;
+using IfaceMainApi.Models.DTOs.Out;
 using IfaceMainApi.Models.Entities;
 using IfaceMainApi.Models.Templates;
 using IfaceMainApi.src.Models.DTOs.In;
@@ -13,13 +14,13 @@ public class PwadService(AppDbContext appDbContext, ILogger<PwadService> logger)
     private readonly AppDbContext _dbContext = appDbContext;
     private readonly ILogger<PwadService> _logger = logger; 
 
-    public async Task<Result<PwadResponse>> Create(CreatePwadRequest request, Guid caregiverAuthId)
+    public async Task<Result<PwadMinResponse>> Create(CreatePwadRequest request, Guid caregiverAuthId)
     {
         var caregiver = await _dbContext.Caregivers
             .FirstOrDefaultAsync(e => e.AuthId == caregiverAuthId);
 
         if (caregiver == null)
-            return Result<PwadResponse>.Error("Cuidador não encontrado");
+            return Result<PwadMinResponse>.Error("Cuidador não encontrado");
 
         Person person = new()
         {
@@ -52,24 +53,24 @@ public class PwadService(AppDbContext appDbContext, ILogger<PwadService> logger)
 
             await _dbContext.SaveChangesAsync();
 
-            var response = new PwadResponse()
+            var response = new PwadMinResponse()
             {
                 Id = caregiver.Id,
                 Person = new PersonResponse(person),
                 CarefulToken = carefulToken
             };
 
-            return Result<PwadResponse>.Success(response);
+            return Result<PwadMinResponse>.Success(response);
 
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, ex.Message);
-            return Result<PwadResponse>.Error("Falha ao cadastrar Portador de Mal de Alzheimer");
+            return Result<PwadMinResponse>.Error("Falha ao cadastrar Portador de Mal de Alzheimer");
         }
     }
 
-    public async Task<Result<PwadResponse>> RegisterDevice(RegisterPwadDeviceRequest request)
+    public async Task<Result<PwadMinResponse>> RegisterDevice(RegisterPwadDeviceRequest request)
     {
         Careful? careful = await _dbContext.Carefuls
             .Include(c => c.Pwad)
@@ -77,28 +78,28 @@ public class PwadService(AppDbContext appDbContext, ILogger<PwadService> logger)
             .FirstOrDefaultAsync(c => c.CarefulToken == request.CarefulToken);
 
         if (careful == null)
-            return Result<PwadResponse>.Error("Cadastro não encontrado");
+            return Result<PwadMinResponse>.Error("Cadastro não encontrado");
 
         if(careful.Pwad == null)
-            return Result<PwadResponse>.Error("Cadastro não encontrado");
+            return Result<PwadMinResponse>.Error("Cadastro não encontrado");
 
         try
         {
             careful.Pwad.DeviceToken = request.DeviceToken;
             await _dbContext.SaveChangesAsync();
 
-            PwadResponse response = new()
+            PwadMinResponse response = new()
             {
                 CarefulToken = request.CarefulToken,
                 Id = careful.Pwad.Id,
                 Person = new PersonResponse(careful.Pwad.Person)
             };
 
-            return Result<PwadResponse>.Success(response);
+            return Result<PwadMinResponse>.Success(response);
         }
         catch (Exception)
         {
-            return Result<PwadResponse>.Error("Falha ao cadastrar dispositivo");
+            return Result<PwadMinResponse>.Error("Falha ao cadastrar dispositivo");
         }
 
     }
@@ -154,7 +155,7 @@ public class PwadService(AppDbContext appDbContext, ILogger<PwadService> logger)
             .FirstOrDefaultAsync(x => x.Id == pwadId);
 
         if (pwad == null)
-            return Result<PwadResponse>.Error("Portafor de Alzheimer não encontrado");
+            return Result<PwadResponse>.Error("Portador de Alzheimer não encontrado");
 
         PwadResponse response = new()
         {

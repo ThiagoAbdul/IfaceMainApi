@@ -1,0 +1,1 @@
+docker run --rm -p "8080:8080" -e DB_CONNECTION_STRING="Host=iface-rds.crycqk24el99.us-east-2.rds.amazonaws.com;Port=5432;Database=iface_db;Username=postgres;Password=Ajvivo0894" 571600842636.dkr.ecr.us-east-2.amazonaws.com/iface/iface-main-api

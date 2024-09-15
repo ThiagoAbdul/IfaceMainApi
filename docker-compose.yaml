@@ -3,6 +3,7 @@ version: '3.5'
 services:
   iface_db:
       image: postgres:16-alpine
+      container_name: iface_pg
       hostname: iface_pg
       ports:
         - "5433:5432"
@@ -13,6 +14,16 @@ services:
         - "PGDATA=/var/lib/postgresql/data/pgdata"
       volumes:
       - "iface_db_volume:/var/lib/postgresql/data/pgdata"
+  
+  iface_api:
+    image: iface-main-api
+    container_name: iface_api
+    hostname: iface_api
+    ports:
+        - "8080:8080"
+    environment:
+        - "DB_CONNECTION_STRING=Host=iface_pg;Port=5432;Database=iface_db;Username=root;Password=postgres"
 
+     
 volumes:
   iface_db_volume:

@@ -1,5 +1,6 @@
 using IfaceMainApi.Configurations;
 using IfaceMainApi.Data;
+using IfaceMainApi.Middlewares;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,8 +26,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-if (app.Environment.IsProduction())
-    app.UseHttpsRedirection();
+app.UseMiddleware<GlobalExceptionHandler>();
 
 app.MapControllers();
 app.UseHealthChecks("/api/Health");

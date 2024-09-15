@@ -1,3 +1,4 @@
+using IfaceMainApi.Middlewares;
 using IfaceMainApi.Repositories;
 using IfaceMainApi.Services;
 using IfaceMainApi.src.Repositories;
@@ -13,6 +14,8 @@ public static class DependencyInjection
         services.AddScoped<CaregiverService>();
         services.AddScoped<PwadService>();
         services.AddScoped<KnownPersonService>();
+        services.AddTransient<GlobalExceptionHandler>();
+
 
     }
 }
