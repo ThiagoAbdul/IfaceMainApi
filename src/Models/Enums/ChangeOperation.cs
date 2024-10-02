@@ -3,7 +3,7 @@
     public enum ChangeOperation
     {
         CREATE,
-        UPDATEUPDATE,
+        UPDATE,
         DELETE
     }
 }

@@ -14,6 +14,8 @@ public static class DependencyInjection
         services.AddScoped<CaregiverService>();
         services.AddScoped<PwadService>();
         services.AddScoped<KnownPersonService>();
+        services.AddScoped<ChangeService>();
+
         services.AddTransient<GlobalExceptionHandler>();
 
 

@@ -14,10 +14,9 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<PersonWithAlzheimerDisease> PersonWithAlzheimerDisease { get; set; }
 
     public DbSet<Prescription> Prescriptions { get; set; }
-    public DbSet<Photo> Photos { get; set; }
+    public DbSet<Image> Images { get; set; }
     public DbSet<Routine> Routines { get; set; }
     public DbSet<Scheduling> Schedules { get; set; }
-
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -26,7 +25,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
         modelBuilder.ApplyConfiguration(new KnownPersonMapping());
         modelBuilder.ApplyConfiguration(new PersonMapping());
         modelBuilder.ApplyConfiguration(new PersonWithAlzheimersDiseaseMapping());
-        modelBuilder.ApplyConfiguration(new PhotoMapping());
+        modelBuilder.ApplyConfiguration(new ImageMapping());
         modelBuilder.ApplyConfiguration(new PrescriptionMapping());
         modelBuilder.ApplyConfiguration(new RoutineMapping());
         modelBuilder.ApplyConfiguration(new SchedulingMapping());

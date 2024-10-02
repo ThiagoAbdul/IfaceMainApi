@@ -1,4 +1,5 @@
-﻿using IfaceMainApi.Services;
+﻿using IfaceMainApi.Models.DTOs.In;
+using IfaceMainApi.Services;
 using IfaceMainApi.src.Models.DTOs.In;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,9 +21,9 @@ public class KnownPersonController(KnownPersonService knownPersonService) : Cont
     }
 
     [HttpPost("{id}/AddImage")]
-    public async Task<IActionResult> AddImage([FromRoute]Guid id, [FromForm] AddImageForm form)
+    public async Task<IActionResult> AddImage([FromRoute]Guid id, [FromBody] AddImageRequest request)
     {
-        var response = await _knownPersonService.AddImage(id, form.Embedding, form.File);
+        var response = await _knownPersonService.AddImage(id, request);
 
         if(response.HasError())
             return BadRequest(response.ErrorMessage);

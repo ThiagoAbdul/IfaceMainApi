@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IfaceMainApi.Data.Mappings
 {
-    public class PhotoMapping : MappingBase<Photo>
+    public class ImageMapping : MappingBase<Image>
     {
-        public override void Configure(EntityTypeBuilder<Photo> builder)
+        public override void Configure(EntityTypeBuilder<Image> builder)
         {
             base.Configure(builder);
 
-            builder.ToTable("photos");
+            builder.ToTable("images");
 
             builder.HasOne(x => x.KnownPerson)
                 .WithMany(x => x.Photos)

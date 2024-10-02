@@ -38,7 +38,7 @@ namespace IfaceMainApi.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 9, 15, 18, 17, 55, 229, DateTimeKind.Utc).AddTicks(6272));
+                        .HasDefaultValue(new DateTime(2024, 9, 16, 2, 38, 42, 46, DateTimeKind.Utc).AddTicks(4054));
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -77,7 +77,7 @@ namespace IfaceMainApi.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 9, 15, 18, 17, 55, 227, DateTimeKind.Utc).AddTicks(9607));
+                        .HasDefaultValue(new DateTime(2024, 9, 16, 2, 38, 42, 44, DateTimeKind.Utc).AddTicks(2257));
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -113,7 +113,7 @@ namespace IfaceMainApi.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 9, 15, 18, 17, 55, 228, DateTimeKind.Utc).AddTicks(2100));
+                        .HasDefaultValue(new DateTime(2024, 9, 16, 2, 38, 42, 44, DateTimeKind.Utc).AddTicks(4733));
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -121,15 +121,17 @@ namespace IfaceMainApi.Migrations
                     b.Property<bool>("Deleted")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("EntityName")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("Entity")
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("LastUpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("Operation")
                         .HasColumnType("integer");
+
+                    b.Property<Guid>("PwadId")
+                        .HasColumnType("uuid");
 
                     b.Property<Guid?>("RegisterId")
                         .HasColumnType("uuid");
@@ -142,7 +144,50 @@ namespace IfaceMainApi.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("PwadId");
+
                     b.ToTable("changes", (string)null);
+                });
+
+            modelBuilder.Entity("IfaceMainApi.Models.Entities.Image", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValue(new DateTime(2024, 9, 16, 2, 38, 42, 45, DateTimeKind.Utc).AddTicks(7540));
+
+                    b.Property<Guid>("CreatedById")
+                        .HasColumnType("uuid");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Embedding")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("KnownPersonId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("LastUpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("UpdatedById")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("KnownPersonId");
+
+                    b.ToTable("images", (string)null);
                 });
 
             modelBuilder.Entity("IfaceMainApi.Models.Entities.KnownPerson", b =>
@@ -154,7 +199,7 @@ namespace IfaceMainApi.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 9, 15, 18, 17, 55, 228, DateTimeKind.Utc).AddTicks(2629));
+                        .HasDefaultValue(new DateTime(2024, 9, 16, 2, 38, 42, 44, DateTimeKind.Utc).AddTicks(5221));
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -197,7 +242,7 @@ namespace IfaceMainApi.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 9, 15, 18, 17, 55, 228, DateTimeKind.Utc).AddTicks(4955));
+                        .HasDefaultValue(new DateTime(2024, 9, 16, 2, 38, 42, 44, DateTimeKind.Utc).AddTicks(9072));
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -251,7 +296,7 @@ namespace IfaceMainApi.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 9, 15, 18, 17, 55, 228, DateTimeKind.Utc).AddTicks(5452));
+                        .HasDefaultValue(new DateTime(2024, 9, 16, 2, 38, 42, 44, DateTimeKind.Utc).AddTicks(9657));
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -289,46 +334,6 @@ namespace IfaceMainApi.Migrations
                     b.ToTable("persons_with_alzheimer_disease", (string)null);
                 });
 
-            modelBuilder.Entity("IfaceMainApi.Models.Entities.Photo", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 9, 15, 18, 17, 55, 229, DateTimeKind.Utc).AddTicks(2339));
-
-                    b.Property<Guid>("CreatedById")
-                        .HasColumnType("uuid");
-
-                    b.Property<bool>("Deleted")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("Embedding")
-                        .HasColumnType("text");
-
-                    b.Property<Guid>("KnownPersonId")
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("LastUpdatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid>("UpdatedById")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Url")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("KnownPersonId");
-
-                    b.ToTable("photos", (string)null);
-                });
-
             modelBuilder.Entity("IfaceMainApi.Models.Entities.Prescription", b =>
                 {
                     b.Property<Guid>("Id")
@@ -341,7 +346,7 @@ namespace IfaceMainApi.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 9, 15, 18, 17, 55, 229, DateTimeKind.Utc).AddTicks(3188));
+                        .HasDefaultValue(new DateTime(2024, 9, 16, 2, 38, 42, 45, DateTimeKind.Utc).AddTicks(8710));
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -382,7 +387,7 @@ namespace IfaceMainApi.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 9, 15, 18, 17, 55, 229, DateTimeKind.Utc).AddTicks(4332));
+                        .HasDefaultValue(new DateTime(2024, 9, 16, 2, 38, 42, 46, DateTimeKind.Utc).AddTicks(1040));
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -423,7 +428,7 @@ namespace IfaceMainApi.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 9, 15, 18, 17, 55, 229, DateTimeKind.Utc).AddTicks(5220));
+                        .HasDefaultValue(new DateTime(2024, 9, 16, 2, 38, 42, 46, DateTimeKind.Utc).AddTicks(2438));
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -487,6 +492,28 @@ namespace IfaceMainApi.Migrations
                     b.Navigation("Person");
                 });
 
+            modelBuilder.Entity("IfaceMainApi.Models.Entities.Change", b =>
+                {
+                    b.HasOne("IfaceMainApi.Models.Entities.PersonWithAlzheimerDisease", "Pwad")
+                        .WithMany()
+                        .HasForeignKey("PwadId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Pwad");
+                });
+
+            modelBuilder.Entity("IfaceMainApi.Models.Entities.Image", b =>
+                {
+                    b.HasOne("IfaceMainApi.Models.Entities.KnownPerson", "KnownPerson")
+                        .WithMany("Photos")
+                        .HasForeignKey("KnownPersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("KnownPerson");
+                });
+
             modelBuilder.Entity("IfaceMainApi.Models.Entities.KnownPerson", b =>
                 {
                     b.HasOne("IfaceMainApi.Models.Entities.Person", "Person")
@@ -527,17 +554,6 @@ namespace IfaceMainApi.Migrations
                     b.Navigation("MainCaregiver");
 
                     b.Navigation("Person");
-                });
-
-            modelBuilder.Entity("IfaceMainApi.Models.Entities.Photo", b =>
-                {
-                    b.HasOne("IfaceMainApi.Models.Entities.KnownPerson", "KnownPerson")
-                        .WithMany("Photos")
-                        .HasForeignKey("KnownPersonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("KnownPerson");
                 });
 
             modelBuilder.Entity("IfaceMainApi.Models.Entities.Prescription", b =>

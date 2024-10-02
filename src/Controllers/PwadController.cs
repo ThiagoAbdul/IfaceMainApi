@@ -36,7 +36,7 @@ public class PwadController(PwadService pwadService) : ControllerBase
         return Ok(result.Value);
     }
 
-    [HttpPost("{pwadId}/AddKnowPerson")]
+    [HttpPost("{pwadId}/AddKnownPerson")]
     public async Task<IActionResult> AddKnowPerson(
         [FromRoute] Guid pwadId, [FromBody] CreateKnowPersonRequest request)
     {

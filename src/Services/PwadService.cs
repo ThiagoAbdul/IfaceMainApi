@@ -5,7 +5,9 @@ using IfaceMainApi.Models.Templates;
 using IfaceMainApi.src.Models.DTOs.In;
 using IfaceMainApi.src.Models.DTOs.Out;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
+using IfaceMainApi.Models.Enums;
+
+
 
 namespace IfaceMainApi.src.Services;
 
@@ -128,6 +130,16 @@ public class PwadService(AppDbContext appDbContext, ILogger<PwadService> logger)
         };
 
         await _dbContext.AddAsync(knownPerson);
+
+        Change change = new()
+        {
+            Entity = AppEntity.KnownPerson,
+            Operation = ChangeOperation.CREATE,
+            RegisterId = knownPerson.Id,
+            Pwad = pwad
+        };
+
+        await _dbContext.AddAsync(change);
 
         await _dbContext.SaveChangesAsync();
 
