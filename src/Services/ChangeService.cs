@@ -11,13 +11,24 @@ namespace IfaceMainApi.src.Services;
 public class ChangeService(AppDbContext dbContext, ILogger<ChangeService> logger)
 {
 
-    public async Task<Result<IEnumerable<ChangeResponse>>> GetChangesForPwad(Guid pwadId)
+    public async Task<Result<IEnumerable<ChangeResponse>>> GetChangesForPwad(Guid pwadId, bool all = false)
     {
-
-        var changes = await dbContext.Changes
-            .Where(x => x.PwadId == pwadId && x.Sync == false)
+        List<Change> changes;
+        if (all)
+        {
+            changes = await dbContext.Changes
+            .Where(x => x.PwadId == pwadId)
             .AsNoTracking()
             .ToListAsync();
+
+        }
+        else
+        {
+            changes = await dbContext.Changes
+            .Where(x => x.PwadId == pwadId && !x.Sync)
+            .AsNoTracking()
+            .ToListAsync();
+        }
 
         if (changes.Count == 0)
             return Result<IEnumerable<ChangeResponse>>.Success([]);
